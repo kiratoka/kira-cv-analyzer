@@ -9,6 +9,7 @@ import { usePuterStore } from '~/lib/puter'
 import { generateUUID } from '~/lib/utils'
 
 const upload = () => {
+    
     const { auth, isLoading, fs, ai, kv } = usePuterStore()
     const navigate = useNavigate()
     const [isProcessing, setIsProcessing] = useState(false)
@@ -60,7 +61,7 @@ const upload = () => {
         data.feedback = JSON.parse(feedbackText);
         await kv.set(`resume:${uuid}`, JSON.stringify(data))
         setStatusText("Analisis selesai, mengarahkan ulang...")
-        console.log(data)
+        navigate(`/resume/${uuid}`)
     }
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
