@@ -1,97 +1,97 @@
 export const resumes: Resume[] = [
-    {
-      id: "1",
-      companyName: "Google",
-      jobTitle: "Frontend Developer",
-      imagePath: "/images/resume_01.png",
-      resumePath: "/resumes/resume-1.pdf",
-      feedback: {
-        overallScore: 85,
-        ATS: {
-          score: 90,
-          tips: [],
-        },
-        toneAndStyle: {
-          score: 90,
-          tips: [],
-        },
-        content: {
-          score: 90,
-          tips: [],
-        },
-        structure: {
-          score: 90,
-          tips: [],
-        },
-        skills: {
-          score: 90,
-          tips: [],
-        },
+  {
+    id: "1",
+    companyName: "Google",
+    jobTitle: "Frontend Developer",
+    imagePath: "/images/resume_01.png",
+    resumePath: "/resumes/resume-1.pdf",
+    feedback: {
+      overallScore: 85,
+      ATS: {
+        score: 90,
+        tips: [],
+      },
+      toneAndStyle: {
+        score: 90,
+        tips: [],
+      },
+      content: {
+        score: 90,
+        tips: [],
+      },
+      structure: {
+        score: 90,
+        tips: [],
+      },
+      skills: {
+        score: 90,
+        tips: [],
       },
     },
-    {
-      id: "2",
-      companyName: "Microsoft",
-      jobTitle: "Cloud Engineer",
-      imagePath: "/images/resume_02.png",
-      resumePath: "/resumes/resume-2.pdf",
-      feedback: {
-        overallScore: 55,
-        ATS: {
-          score: 90,
-          tips: [],
-        },
-        toneAndStyle: {
-          score: 90,
-          tips: [],
-        },
-        content: {
-          score: 90,
-          tips: [],
-        },
-        structure: {
-          score: 90,
-          tips: [],
-        },
-        skills: {
-          score: 90,
-          tips: [],
-        },
+  },
+  {
+    id: "2",
+    companyName: "Microsoft",
+    jobTitle: "Cloud Engineer",
+    imagePath: "/images/resume_02.png",
+    resumePath: "/resumes/resume-2.pdf",
+    feedback: {
+      overallScore: 55,
+      ATS: {
+        score: 90,
+        tips: [],
+      },
+      toneAndStyle: {
+        score: 90,
+        tips: [],
+      },
+      content: {
+        score: 90,
+        tips: [],
+      },
+      structure: {
+        score: 90,
+        tips: [],
+      },
+      skills: {
+        score: 90,
+        tips: [],
       },
     },
-    {
-      id: "3",
-      companyName: "Apple",
-      jobTitle: "iOS Developer",
-      imagePath: "/images/resume_03.png",
-      resumePath: "/resumes/resume-3.pdf",
-      feedback: {
-        overallScore: 75,
-        ATS: {
-          score: 90,
-          tips: [],
-        },
-        toneAndStyle: {
-          score: 90,
-          tips: [],
-        },
-        content: {
-          score: 90,
-          tips: [],
-        },
-        structure: {
-          score: 90,
-          tips: [],
-        },
-        skills: {
-          score: 90,
-          tips: [],
-        },
+  },
+  {
+    id: "3",
+    companyName: "Apple",
+    jobTitle: "iOS Developer",
+    imagePath: "/images/resume_03.png",
+    resumePath: "/resumes/resume-3.pdf",
+    feedback: {
+      overallScore: 75,
+      ATS: {
+        score: 90,
+        tips: [],
+      },
+      toneAndStyle: {
+        score: 90,
+        tips: [],
+      },
+      content: {
+        score: 90,
+        tips: [],
+      },
+      structure: {
+        score: 90,
+        tips: [],
+      },
+      skills: {
+        score: 90,
+        tips: [],
       },
     },
-  ];
-  
-  export const AIResponseFormat = `
+  },
+];
+
+export const AIResponseFormat = `
         interface Feedback {
         overallScore: number; //max 100
         ATS: {
@@ -134,25 +134,25 @@ export const resumes: Resume[] = [
           }[]; //give 3-4 tips
         };
       }`;
-  
-  export const prepareInstructions = ({
-    jobTitle,
-    jobDescription,
-    AIResponseFormat,
-  }: {
-    jobTitle: string;
-    jobDescription: string;
-    AIResponseFormat: string;
-  }) =>
-    `You are an expert in ATS (Applicant Tracking System) and resume analysis.
-    Please analyze and rate this resume and suggest how to improve it.
-    The rating can be low if the resume is bad.
-    Be thorough and detailed. Don't be afraid to point out any mistakes or areas for improvement.
-    If there is a lot to improve, don't hesitate to give low scores. This is to help the user to improve their resume.
-    If available, use the job description for the job user is applying to to give more detailed feedback.
-    If provided, take the job description into consideration.
-    The job title is: ${jobTitle}
-    The job description is: ${jobDescription}
-    Provide the feedback using the following format: ${AIResponseFormat}
-    Return the analysis as a JSON object, without any other text and without the backticks.
-    Do not include any other text or comments.`;
+
+export const prepareInstructions = ({
+  jobTitle,
+  jobDescription,
+
+}: {
+  jobTitle: string;
+  jobDescription: string;
+
+}) =>
+  `Anda adalah seorang ahli dalam ATS (Applicant Tracking System) dan analisis resume.
+Harap analisis dan beri penilaian terhadap resume ini serta sarankan cara untuk meningkatkannya.
+Penilaiannya bisa rendah jika resume-nya buruk.
+Harap bersikap menyeluruh dan rinci. Jangan ragu untuk menunjukkan kesalahan atau area yang perlu diperbaiki.
+Jika ada banyak hal yang perlu diperbaiki, jangan segan memberikan skor rendah. Ini bertujuan untuk membantu pengguna memperbaiki resume-nya.
+Jika tersedia, gunakan deskripsi pekerjaan dari pekerjaan yang sedang dilamar oleh pengguna untuk memberikan masukan yang lebih spesifik.
+Jika diberikan, perhatikan deskripsi pekerjaan tersebut.
+Judul pekerjaan: ${jobTitle}
+Deskripsi pekerjaan: ${jobDescription}
+Berikan masukan menggunakan format berikut: ${AIResponseFormat}
+Kembalikan analisis dalam format objek JSON, tanpa teks lain dan tanpa tanda backtick ().
+Jangan sertakan teks atau komentar lain.`;
