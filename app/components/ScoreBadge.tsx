@@ -14,7 +14,7 @@ interface ScoreBadgeProps {
       badgeText = 'Tidak Buruk';
     } else {
       badgeColor = 'bg-badge-red text-red-600';
-      badgeText = 'Ditingkatkan Lagi';
+      badgeText = 'Harus Ditingkatkan Lagi';
     }
   
     return (
