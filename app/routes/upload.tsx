@@ -86,12 +86,12 @@ const upload = () => {
         <main className="bg-[url('/images/bg-main.svg')] bg-cover">
             <Navbar />
             <section className="main-section">
-                <div className="page-heading py-16">
+                <div className="page-heading py-16 md:pt-5">
                     <h1>Upload CV Anda</h1>
                     {isProcessing ? (
                         <>
                             <h2>{statusText}</h2>
-                            <img src="/images/resume-scan.gif" alt="" className='w-full' />
+                            <img src="/images/resume-scan.gif" alt="" className='w-full sm:w-[50%]' />
                         </>
 
                     )

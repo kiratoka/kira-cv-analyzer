@@ -49,7 +49,7 @@ export default function Home() {
   }, [])
 
   return <main className="bg-[url('/images/bg-main.svg')] bg-cover">
-    <Navbar />
+    <Navbar auth={auth.isAuthenticated}/>
     <section className="main-section">
       <div className="page-heading py-16">
         <h1>Lakukan analisis CV Anda dengan AI</h1>

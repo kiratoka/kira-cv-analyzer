@@ -1,5 +1,5 @@
 import { useEffect } from "react"
-import { useLocation, useNavigate } from "react-router"
+import { Link, useLocation, useNavigate } from "react-router"
 import { usePuterStore } from "~/lib/puter"
 
 export const meta = () => ([
@@ -22,8 +22,17 @@ const auth = () => {
             <div className="gradient-border shadow-lg">
                 <section className="flex flex-col gap-8 bg-white rounded-2xl p-10">
                     <div className="flex flex-col items-center gap-2 text-center">
-                        <h1>Selamat Datang</h1>
-                        <h2>Login untuk memindai CVmu</h2>
+                        {auth.isAuthenticated ? (
+                            <div className="flex flex-col items-center gap-2 text-center">
+                                <h1>Apakah kamu akan keluar akun?</h1>
+                            </div>
+                        ) : (
+                            <div>
+                                <h1>Selamat Datang</h1>
+                                <h2>Login untuk memindai CVmu</h2>
+                            </div>
+                        )
+                        }
                     </div>
                     <div>
                         {isLoading ? (
@@ -33,9 +42,12 @@ const auth = () => {
                         ) :
                             <>
                                 {auth.isAuthenticated ?
-                                    <button className="auth-button" onClick={auth.signOut} >
-                                        <p>Log out</p>
-                                    </button>
+                                    <div className="flex flex-col gap-5 justify-center items-center">
+                                        <button className="rounded-full py-4 px-8 cursor-pointer max-md:w-full text-3xl font-semibold text-white bg-red-600 hover:bg-red-700" onClick={auth.signOut} >
+                                            <p>Log out</p>
+                                        </button>
+                                        <Link to={"/"} className="auth-button text-center">Kembali ke Home</Link>
+                                    </div>
                                     :
                                     <button className="auth-button" onClick={auth.signIn} >
                                         <p>Log in</p>
