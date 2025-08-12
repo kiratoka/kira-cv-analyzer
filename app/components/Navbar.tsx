@@ -7,11 +7,11 @@ const Navbar = ({ auth}: { auth?: boolean }) => {
             <Link to="/">
                 <p className='text-2xl font-bold text-gradient'>KiraCV</p>
             </Link>
-            <div>
-                <Link to="/upload" className='primary-button w-fit' >
+            <div className='flex justify-center items-center'>
+                <Link to="/upload" className='primary-button w-fit flex text-center max-sm:text-xs' >
                     Upload CV
                 </Link>
-                <Link to={"/auth"} className='ml-4 w-fit text-red-600 hover:bg-red-200 rounded-full px-4 py-2'>
+                <Link to={"/auth"} className='sm:ml-4 w-fit text-red-600 hover:bg-red-200 rounded-full px-4 py-2 max-sm:text-xs'>
                     Logout
                 </Link>
             </div>
